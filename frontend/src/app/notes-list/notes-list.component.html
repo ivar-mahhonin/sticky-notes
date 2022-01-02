@@ -1,0 +1,13 @@
+<div class="notes-list">
+
+  <app-note-editor
+    [clearEditor]="clearEditorStream$"
+    (onSave)="save($event)"></app-note-editor>
+
+  <app-note-editor *ngFor="let note of notes; let i = index"
+                   [note]="note"
+                   (onDelete)="delete($event)"
+                   (onUpdate)="update($event, i)"
+  ></app-note-editor>
+</div>
+

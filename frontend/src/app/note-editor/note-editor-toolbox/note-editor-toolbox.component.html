@@ -1,0 +1,22 @@
+<div class="toolbox">
+
+  <fa-icon [icon]="faSave" class="save"
+           placement="top"
+           ngbTooltip="Save note"
+           (click)="saveClicked.emit()"
+           *ngIf="canSave"></fa-icon>
+
+  <fa-icon [icon]="faEdit"
+           class="edit"
+           placement="top"
+           ngbTooltip="Edit note"
+           (click)="editClicked.emit()"
+           *ngIf="canEdit"></fa-icon>
+
+  <fa-icon [icon]="faTrashAlt"
+           class="remove"
+           placement="top"
+           ngbTooltip="Remove note"
+           (click)="removeClicked.emit()"
+           *ngIf="canRemove"></fa-icon>
+</div>

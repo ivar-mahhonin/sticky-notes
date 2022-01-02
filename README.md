@@ -18,3 +18,9 @@ Run spring web-app:
 
 `./mvnw clean spring-boot:run
 `
+
+
+#Preview:
+
+![Alt text](docs/web-preview.png)
+![Alt text](docs/phone-preview.png)

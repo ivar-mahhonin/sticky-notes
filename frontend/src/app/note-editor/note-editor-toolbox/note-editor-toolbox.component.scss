@@ -1,0 +1,11 @@
+.toolbox {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: right;
+
+  .save, .edit, .remove {
+    font-size: 25px;
+    cursor: pointer;
+  }
+}
