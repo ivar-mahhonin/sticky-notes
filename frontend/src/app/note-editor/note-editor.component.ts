@@ -13,9 +13,9 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() clearEditor: Subject<void>;
   @Input() note: Note = new Note();
 
-  @Output() onDelete: EventEmitter<string> = new EventEmitter();
-  @Output() onSave: EventEmitter<string> = new EventEmitter();
-  @Output() onUpdate: EventEmitter<Note> = new EventEmitter();
+  @Output() deleteEmitter: EventEmitter<string> = new EventEmitter();
+  @Output() saveEmitter: EventEmitter<string> = new EventEmitter();
+  @Output() updateEmitter: EventEmitter<Note> = new EventEmitter();
 
   readonly = true;
 
@@ -43,14 +43,14 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
 
   save(): void {
     if (this.note.id) {
-      this.onUpdate.emit(this.note);
+      this.updateEmitter.emit(this.note);
     } else {
-      this.onSave.emit(this.note.text);
+      this.saveEmitter.emit(this.note.text);
     }
   }
 
   remove(): void {
-    this.onDelete.emit(this.note.id);
+    this.deleteEmitter.emit(this.note.id);
   }
 
   clearEditorState() {
