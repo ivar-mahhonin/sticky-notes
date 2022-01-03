@@ -8,6 +8,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Checking current dir
+          command: ls -la
+      - run:
           name: Show current branch
           command: echo ${CIRCLE_BRANCH}
       - run:
