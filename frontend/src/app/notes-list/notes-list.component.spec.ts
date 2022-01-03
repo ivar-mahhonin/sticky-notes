@@ -1,6 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { NotesListComponent } from './notes-list.component';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {NotesListComponent} from './notes-list.component';
+import {NoteEditorComponent} from "../note-editor/note-editor.component";
+import {NoteEditorToolboxComponent} from "../note-editor/note-editor-toolbox/note-editor-toolbox.component";
+import {FormsModule} from "@angular/forms";
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('NotesListComponent', () => {
   let component: NotesListComponent;
@@ -8,9 +11,9 @@ describe('NotesListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotesListComponent ]
-    })
-    .compileComponents();
+      declarations: [NotesListComponent, NoteEditorComponent,NoteEditorToolboxComponent],
+      imports: [HttpClientTestingModule, FormsModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {
