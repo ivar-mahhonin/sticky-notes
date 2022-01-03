@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {ApiRouter} from "../ApiRouter";
+import {ApiRouter} from "../api-router";
 import {Note} from "../../models/note.model";
 import {Observable} from "rxjs";
 

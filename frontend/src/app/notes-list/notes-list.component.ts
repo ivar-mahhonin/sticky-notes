@@ -2,8 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Note} from "../models/note.model";
 import {NotesService} from "../services/notes/notes.service";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
-import {DeleteNoteModalComponent} from "./delete-note-modal/delete-note-modal.component";
 import {Subject} from "rxjs";
+import {SimpleModalComponent} from "../lib/simple-modal/simple-modal.component";
 
 @Component({
   selector: 'app-notes-list',
@@ -29,7 +29,12 @@ export class NotesListComponent implements OnInit {
   }
 
   delete(id: string): void {
-    const modalRef = this.modalService.open(DeleteNoteModalComponent);
+    const modalRef = this.modalService.open(SimpleModalComponent);
+
+    modalRef.componentInstance.title = 'Deleting note';
+    modalRef.componentInstance.text = 'Are you sure you would like to delete this note?';
+    modalRef.componentInstance.confirmText = 'Delete';
+    modalRef.componentInstance.cancelText = 'Cancel';
 
     modalRef.result.then((confirmDelete: boolean) => {
       if (confirmDelete) {
