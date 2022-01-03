@@ -7,10 +7,11 @@ import com.postit.model.Note;
 import com.postit.repository.NotesRepository;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping(path = "api/")
 class NoteController {
-
     private final NotesRepository repository;
 
     NoteController(NotesRepository repository) {
@@ -23,24 +24,24 @@ class NoteController {
     }
 
     @PostMapping("/notes")
-    Note newNote(@RequestBody Note newNote) {
+    Note newNote(@RequestBody @Valid Note newNote) {
         return repository.save(newNote);
     }
 
     @GetMapping("/notes/{id}")
     Note one(@PathVariable Long id) {
-        return repository.findById(id)
+        return repository
+                .findById(id)
                 .orElseThrow(() -> new NoteNotFoundException(id));
     }
 
     @PutMapping("/notes/{id}")
-    Note replaceNote(@RequestBody Note newNote, @PathVariable Long id) {
+    Note replaceNote(@RequestBody @Valid Note newNote, @PathVariable Long id) {
         return repository.findById(id)
                 .map(note -> {
                     note.setText(newNote.getText());
                     return repository.save(note);
-                })
-                .orElseGet(() -> {
+                }).orElseGet(() -> {
                     newNote.setId(id);
                     return repository.save(newNote);
                 });

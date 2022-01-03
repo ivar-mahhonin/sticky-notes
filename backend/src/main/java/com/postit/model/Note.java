@@ -3,6 +3,9 @@ package com.postit.model;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Note {
@@ -11,6 +14,9 @@ public class Note {
     @GeneratedValue
     Long id;
 
+    @Max(200)
+    @Min(1)
+    @NotEmpty(message = "Text is required")
     private String text;
     private Date created;
     private Date modified;
@@ -47,12 +53,12 @@ public class Note {
     }
 
     @PreUpdate
-    public void setModified() {
+    public void preUpdate() {
         this.modified = new Date();
     }
 
     @PrePersist
-    public void setCreated() {
+    public void preCreate() {
         this.modified = new Date();
         this.created = new Date();
     }
