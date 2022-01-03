@@ -22,7 +22,7 @@ jobs:
           command: npm run lint
       - run:
           name: Testing
-          command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          command: npm run test-headless
 
 workflows:
   verification:
