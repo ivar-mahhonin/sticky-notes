@@ -1,6 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-basic-title">{{title}}</h4>
-  <button type="button" class="close" aria-label="Close" (click)="dismiss('Cross click')">
+  <button type="button" class="close" aria-label="Close" (click)="dismiss('Dismissed')">
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
@@ -8,9 +8,9 @@
   <p>{{text}}</p>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-danger"
+  <button type="button" class="btn btn-danger confirm"
           (click)="close(true)"
           *ngIf="confirmText">{{confirmText}}</button>
-  <button type="button" class="btn btn-success"
+  <button type="button" class="btn btn-success cancel"
           (click)="close(false)" *ngIf="cancelText">{{cancelText}}</button>
 </div>
