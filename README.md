@@ -1,8 +1,8 @@
 # PostIT notes web-app
 
-###Prerequisites:
+### Prerequisites:
 
-###Frontend:
+### Frontend:
 [Angular CLI 12.05](https://angular.io/cli)
 
 [Node: 12.16.1](https://nodejs.org/en/download/)
@@ -10,7 +10,7 @@
 [Node Package Manager: npm 6.13.4](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 
-###Backend:
+### Backend:
 
 [Java 11](https://www.oracle.com/java/technologies/downloads/)
 
@@ -20,7 +20,7 @@
 
 [Docker Compose](https://docs.docker.com/compose/install/)
 
-###Provide .env variables files to the root directory:
+### Provide .env variables files to the root directory:
 Example:
 
 `POSTIT_DB_NAME=postit`
@@ -36,14 +36,14 @@ Example:
 `POSTIT_DB_HOST_NAME=postit_db`
 
 
-###Run in Development mode:
-###Frontend:
+### Run in Development mode:
+### Frontend:
 From `frontend` directory
 
 `npm run start
 `
 
-###Backend:
+### Backend:
 From `project root` directory start docker compose with postgres instance:
 
 `docker-compose up postit_db`
@@ -53,7 +53,7 @@ From `backend` directory run following command to start backend:
 `./mvnw clean spring-boot:run
 `
 
-###Run in Production mode:
+### Run in Production mode:
 
 From `project root` directory package project jars:
 
@@ -69,7 +69,7 @@ Build docker image:
 Start docker compose with database and app instances:
 `docker-compose up`
 
-#Preview:
+### Preview:
 
 ![Alt text](docs/web-preview.png)
 ![Alt text](docs/phone-preview.png)
