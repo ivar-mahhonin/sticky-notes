@@ -21,7 +21,8 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
 
   clearEditorSubscription: Subscription;
 
-  constructor(private notesService: NotesService) {
+  //TODO get latest version of Note in edit mode
+  constructor() {
   }
 
   ngOnInit(): void {
