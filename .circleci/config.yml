@@ -36,9 +36,9 @@ jobs:
       - checkout:
           path: ~/postit
       - run:
-          ./mvnw clean install
+          mvn clean install
       - run:
-          ./mvnw test
+          mvn test
 workflows:
   verification:
     jobs:
