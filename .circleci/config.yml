@@ -36,16 +36,6 @@ jobs:
       - checkout:
           path: ~/postit
       - run:
-          name: Waiting for Postgres to be ready
-          command: |
-            for i in `seq 1 10`;
-            do
-              nc -z 127.0.0.1 5342 && echo Success && exit 0
-              echo -n .
-              sleep 1
-            done
-            echo Failed waiting for Postgres && exit 1
-      - run:
           mvn test
 workflows:
   verification:
