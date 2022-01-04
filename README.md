@@ -57,14 +57,14 @@ From `project root` directory start docker compose with postgres instance:
 
 From `backend` directory run following command to start backend:
 
-`./mvnw clean spring-boot:run
+`mvn clean spring-boot:run
 `
 
 ### Run in Production mode:
 
 From `project root` directory package project jars:
 
-`./mvnw -P prod -DskipTests clean package
+`mvn -P prod -DskipTests clean package
 `
 
 Build docker image:
