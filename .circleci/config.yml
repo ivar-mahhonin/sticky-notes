@@ -26,8 +26,8 @@ jobs:
   verify-backend:
     working_directory: ~/postit/backend
     docker:
-      - image: openjdk:11
-      - image: postgres:13.1-alpine
+      - image: circleci/openjdk:11-jdk-stretch
+      - image: circleci/postgres:13.1
         environment:
           POSTGRES_DB: postit-test
           POSTGRES_USER: post_it_user_test
@@ -36,7 +36,9 @@ jobs:
       - checkout:
           path: ~/postit
       - run:
-          mvn test
+          ./mvnw clean install
+      - run:
+          ./mvnw test
 workflows:
   verification:
     jobs:
