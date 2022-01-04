@@ -1,7 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {NotesService} from "../services/notes/notes.service";
 import {Note} from "../models/note.model";
-import {map} from "rxjs/operators";
 import {Subject, Subscription} from "rxjs";
 
 @Component({
@@ -22,11 +20,8 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
 
   clearEditorSubscription: Subscription;
 
-  constructor() {
-  }
-
   ngOnInit(): void {
-    this.readonly = this.note.id !== undefined;
+    this.readonly = this.note?.id !== undefined;
 
     if (this.clearEditor) {
       this.clearEditorSubscription = this.clearEditor.subscribe(_ => this.clearEditorState())
