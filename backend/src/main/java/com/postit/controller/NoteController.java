@@ -11,7 +11,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(path = "api/")
-class NoteController {
+public class NoteController {
     private final NotesRepository repository;
 
     NoteController(NotesRepository repository) {
