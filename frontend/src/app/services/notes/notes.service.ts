@@ -23,7 +23,7 @@ export class NotesService {
     return this.http.put<Note>(ApiRouter.url('/notes/:id')({id: note.id}), note);
   }
 
-  delete(id: string): Observable<Note> {
+  delete(id: number): Observable<Note> {
     return this.http.delete<Note>(ApiRouter.url('/notes/:id')({id}));
   }
 }

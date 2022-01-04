@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {NoteEditorToolboxComponent} from './note-editor-toolbox.component';
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
-fdescribe('NoteEditorToolboxComponent', () => {
+describe('NoteEditorToolboxComponent', () => {
   let component: NoteEditorToolboxComponent;
   let fixture: ComponentFixture<NoteEditorToolboxComponent>;
 

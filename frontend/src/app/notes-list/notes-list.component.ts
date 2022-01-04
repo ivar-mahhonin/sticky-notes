@@ -28,7 +28,7 @@ export class NotesListComponent implements OnInit {
     });
   }
 
-  delete(id: string): void {
+  delete(id: number): void {
     const modalRef = this.modalService.open(SimpleModalComponent);
 
     modalRef.componentInstance.title = 'Deleting note';

@@ -13,7 +13,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() clearEditor: Subject<void>;
   @Input() note: Note = new Note();
 
-  @Output() deleteEmitter: EventEmitter<string> = new EventEmitter();
+  @Output() deleteEmitter: EventEmitter<number> = new EventEmitter();
   @Output() saveEmitter: EventEmitter<string> = new EventEmitter();
   @Output() updateEmitter: EventEmitter<Note> = new EventEmitter();
 
@@ -26,9 +26,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    if (!this.note.id) {
-      this.readonly = false;
-    }
+    this.readonly = this.note.id !== undefined;
 
     if (this.clearEditor) {
       this.clearEditorSubscription = this.clearEditor.subscribe(_ => this.clearEditorState())

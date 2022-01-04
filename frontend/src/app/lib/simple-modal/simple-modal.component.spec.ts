@@ -10,7 +10,7 @@ export class MockNgbActiveModalRef {
   }
 }
 
-fdescribe('SimpleModalComponent', () => {
+describe('SimpleModalComponent', () => {
   let component: SimpleModalComponent;
   let fixture: ComponentFixture<SimpleModalComponent>;
 
