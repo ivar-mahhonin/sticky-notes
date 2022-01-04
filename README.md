@@ -35,6 +35,13 @@ Example:
 
 `POSTIT_DB_HOST_NAME=postit_db`
 
+`POSTIT_DB_NAME_TEST=postit-test`
+
+`POSTIT_DB_USER_TEST=post_it_user_test`
+
+`POSTIT_DB_PASSWORD_TEST=post_it_user_password_test`
+
+`POSTIT_DB_PORT_TEST=5433`
 
 ### Run in Development mode:
 ### Frontend:
@@ -68,6 +75,23 @@ Build docker image:
 
 Start docker compose with database and app instances:
 `docker-compose up`
+
+### Run Tests:
+#### Frontend:
+From `frontend` directory run following command to start tests:
+
+`npm run test-headless
+`
+
+#### Backend:
+From the project root directory start docker compose with test database instances:
+
+`docker-compose up postit_db_test`
+
+From `backend` directory run following command to start tests:
+
+`mvn test
+`
 
 ### Preview:
 
