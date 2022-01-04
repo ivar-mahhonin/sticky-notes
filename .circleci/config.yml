@@ -36,7 +36,8 @@ jobs:
       - checkout:
           path: ~/postit
       - run:
-          mvn clean install
+          name: wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           mvn test
 workflows:
