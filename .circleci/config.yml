@@ -23,7 +23,30 @@ jobs:
       - run:
           name: Testing
           command: npm run test-headless
-
+  verify-backend:
+    working_directory: ~/postit/backend
+    docker:
+      - image: openjdk:11
+      - image: postgres:13.1-alpine
+        environment:
+          POSTGRES_DB: postit-test
+          POSTGRES_USER: post_it_user_test
+          POSTGRES_PASSWORD: post_it_user_password_test
+    steps:
+      - checkout:
+          path: ~/postit
+      - run:
+          name: Waiting for Postgres to be ready
+          command: |
+            for i in `seq 1 10`;
+            do
+              nc -z 127.0.0.1 5342 && echo Success && exit 0
+              echo -n .
+              sleep 1
+            done
+            echo Failed waiting for Postgres && exit 1
+      - run:
+          mvn test
 workflows:
   verification:
     jobs:
