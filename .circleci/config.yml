@@ -32,12 +32,16 @@ jobs:
           POSTGRES_DB: postit-test
           POSTGRES_USER: post_it_user_test
           POSTGRES_PASSWORD: post_it_user_password_test
+          POSTIT_DB_PORT_TEST: 5432
+          POSTIT_DB_USER_TEST: post_it_user_test
+          POSTIT_DB_PASSWORD_TEST: post_it_user_password_test
+          POSTIT_DB_NAME_TEST: postit-test
     steps:
       - checkout:
           path: ~/postit
       - run:
           name: wait for db
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:5433 -timeout 1m
       - run:
           mvn test
 workflows:
