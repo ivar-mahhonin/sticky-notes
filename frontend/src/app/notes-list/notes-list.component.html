@@ -6,6 +6,7 @@
 
   <app-note-editor *ngFor="let note of notes; let i = index"
                    [note]="note"
+                   (editEmitter)="edit(note.id, i)"
                    (deleteEmitter)="delete($event)"
                    (updateEmitter)="update($event, i)"
   ></app-note-editor>

@@ -14,7 +14,7 @@
                            [canEdit]="readonly && !!note.id"
                            [canRemove]="!!note.id"
                            [canSave]="!readonly && note.text.length > 0"
-                           (editClicked)="readonly = false"
+                           (editClicked)="edit()"
                            (removeClicked)="remove()"
                            (saveClicked)="save()">
   </app-note-editor-toolbox>

@@ -28,6 +28,12 @@ export class NotesListComponent implements OnInit {
     });
   }
 
+  edit(id: number, index: number): void {
+    this.notesService.getById(id).subscribe(
+      note => this.notes[index].text = note.text,
+      _ => this.clearEditorStream$.next());
+  }
+
   delete(id: number): void {
     const modalRef = this.modalService.open(SimpleModalComponent);
 

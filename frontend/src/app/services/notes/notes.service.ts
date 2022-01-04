@@ -15,6 +15,10 @@ export class NotesService {
     return this.http.get<Note[]>(ApiRouter.url('/notes')());
   }
 
+  getById(id: number): Observable<Note> {
+    return this.http.get<Note>(ApiRouter.url('/notes/:id')({id}));
+  }
+
   create(text: string): Observable<Note> {
     return this.http.post<Note>(ApiRouter.url('/notes')(), {text});
   }

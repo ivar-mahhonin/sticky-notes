@@ -13,6 +13,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   @Input() clearEditor: Subject<void>;
   @Input() note: Note = new Note();
 
+  @Output() editEmitter: EventEmitter<number> = new EventEmitter();
   @Output() deleteEmitter: EventEmitter<number> = new EventEmitter();
   @Output() saveEmitter: EventEmitter<string> = new EventEmitter();
   @Output() updateEmitter: EventEmitter<Note> = new EventEmitter();
@@ -21,7 +22,6 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
 
   clearEditorSubscription: Subscription;
 
-  //TODO get latest version of Note in edit mode
   constructor() {
   }
 
@@ -45,6 +45,11 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     } else {
       this.saveEmitter.emit(this.note.text);
     }
+  }
+
+  edit(): void{
+    this.readonly = false;
+    this.editEmitter.emit(this.note.id);
   }
 
   remove(): void {
