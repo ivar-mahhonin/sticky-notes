@@ -3,9 +3,8 @@ package com.postit.model;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.*;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Note {
@@ -14,8 +13,7 @@ public class Note {
     @GeneratedValue
     Long id;
 
-    @Max(200)
-    @Min(1)
+    @Size(min = 1, max = 200)
     @NotEmpty(message = "Text is required")
     private String text;
     private Date created;
