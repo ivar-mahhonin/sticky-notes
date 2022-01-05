@@ -74,7 +74,7 @@ Build docker image:
 `
 
 Start docker compose with database and app instances:
-`docker-compose up`
+`docker-compose up postit_app postit_db`
 
 ### Run Tests:
 #### Frontend:

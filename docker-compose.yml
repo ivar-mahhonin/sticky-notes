@@ -15,6 +15,7 @@ services:
       - POSTIT_DB_USER=${POSTIT_DB_USER}
       - POSTIT_DB_PASSWORD=${POSTIT_DB_PASSWORD}
       - POSTIT_DB_PORT=${POSTIT_DB_PORT}
+      - POSTIT_DB_HOST_NAME=${POSTIT_DB_HOST_NAME}
   postit_db:
     image: 'postgres:13.1-alpine'
     container_name: ${POSTIT_DB_HOST_NAME}
