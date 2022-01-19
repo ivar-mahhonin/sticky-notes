@@ -1,5 +1,7 @@
 package com.postit.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.*;
@@ -19,11 +21,21 @@ public class Note {
     private Date created;
     private Date modified;
 
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Note() {
     }
 
     public Note(String text) {
         this.text = text;
+    }
+
+    public Note(String text, Category category) {
+        this.text = text;
+        this.category = category;
     }
 
     public Long getId() {
@@ -48,6 +60,18 @@ public class Note {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Long getCategoryId(){
+        return this.category.getId();
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     @PreUpdate
