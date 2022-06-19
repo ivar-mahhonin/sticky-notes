@@ -1,4 +1,6 @@
-# PostIT notes web-app
+# Sticky notes notes web-app
+
+Just a simple CRUD app to wrap to have fun with Java+Spring 
 
 ### Prerequisites:
 
